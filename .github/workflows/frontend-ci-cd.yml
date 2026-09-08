@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "deploy" ]
 env:
-  AWS_REGION: ${{ secrets.AWS_REGION }}
+  AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   ECS_CLUSTER: ${{ secrets.ECS_CLUSTER }}
 jobs:
@@ -17,13 +17,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: us-east-1
       - name: Login Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
       
       - name: Definir variables
         run: |
-          echo "FRONT_IMAGE=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${{ secrets.ECR_FRONTEND_REPO }}:${GITHUB_SHA}" >> $GITHUB_ENV
+          echo "FRONT_IMAGE=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/innovatech-frontend:${GITHUB_SHA}" >> $GITHUB_ENV
       
       - name: Build & Push Frontend
         run: |
