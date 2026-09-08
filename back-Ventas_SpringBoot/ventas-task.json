@@ -11,7 +11,8 @@
       "name": "ventas",
       "image": "328520580274.dkr.ecr.us-east-1.amazonaws.com/ep3-ventas:latest",
       "portMappings": [ { "containerPort": 8081, "protocol": "tcp" } ],
-      "environment": [                                            
+      "environment": [
+        { "name": "SERVER_PORT", "value": "8081" },
         { "name": "SPRING_DATASOURCE_URL", "value": "jdbc:mysql://innovatech-db.cg8fny2jljli.us-east-1.rds.amazonaws.com:3306/ventas" },
         { "name": "SPRING_DATASOURCE_USERNAME", "value": "admin123" },
         { "name": "SPRING_DATASOURCE_PASSWORD", "value": "195723bB+" }
