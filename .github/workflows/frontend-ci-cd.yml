@@ -1,7 +1,8 @@
 name: Deploy Frontend ECS
 on:
   push:
-    branches: [ "deploy" ]
+    branches: [ "main" ]
+  workflow_dispatch:
 env:
   AWS_REGION: us-east-1
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
