@@ -10,7 +10,7 @@
     {
       "name": "frontend",
       "image": "328520580274.dkr.ecr.us-east-1.amazonaws.com/ep3-frontend:latest",
-      "portMappings": [ { "containerPort": 8080, "protocol": "tcp" } ],
+      "portMappings": [ { "containerPort": 80, "protocol": "tcp" } ],
       "environment": [
         { "name": "VITE_API_URL", "value": "http://ep3-alb-1037980832.us-east-1.elb.amazonaws.com" }
       ],
